@@ -18,9 +18,9 @@ TOT := $(abspath $(dir $(lastword $(MAKEFILE_LIST)))../)
 ROOT ?= $(TOT)
 
 # Location of submodules
-CONNECTIONS_HOME ?= $(ROOT)/matchlib/connections
-RAPIDJSON_HOME ?= $(ROOT)/matchlib/rapidjson
-MATCHLIB_HOME ?= $(ROOT)/matchlib/cmod
+# CONNECTIONS_HOME ?= $(ROOT)/matchlib/connections
+# RAPIDJSON_HOME ?= $(ROOT)/matchlib/rapidjson
+# MATCHLIB_HOME ?= $(ROOT)/matchlib/cmod
 
 
 # PLEASE SET BOOST_HOME, SYSTEMC_HOME, CATAPULT_HOME to correct path 
@@ -32,10 +32,28 @@ CATAPULT_HOME ?=
 CC = g++
 
 INCDIR ?=
-INCDIR += -I. -I$(SYSTEMC_HOME)/include -I$(BOOST_HOME)/include -I$(CATAPULT_HOME)/Mgc_home/shared/include
+#INCDIR += -I. -I$(SYSTEMC_HOME)/include -I$(BOOST_HOME)/include -I$(CATAPULT_HOME)/Mgc_home/shared/include
+#INCDIR += -I$(CONNECTIONS_HOME)/include
+#INCDIR += -I$(RAPIDJSON_HOME)/include 
+#INCDIR += -I$(MATCHLIB_HOME)/include 
+
+
+INCDIR += -I$(ROOT)/cmod/Systolic/include
+INCDIR += -I$(SYSTEMC_HOME)/include -I$(SYSTEMC_HOME)/src
+INCDIR += -I$(MATCHLIB_TOOL)/include
 INCDIR += -I$(CONNECTIONS_HOME)/include
-INCDIR += -I$(RAPIDJSON_HOME)/include 
-INCDIR += -I$(MATCHLIB_HOME)/include 
+INCDIR += -I$(MATCHLIB_HOME)/cmod/include
+INCDIR += -I$(BOOST_HOME)/include
+INCDIR += -I$(RAPIDJSON_HOME)/include
+INCDIR += -I$(AC_TYPES)/include
+INCDIR += -I$(AC_MATH)/include
+INCDIR += -I$(AC_SIMUTILS)/include
+INCDIR += -I$(CATAPULT_HOME)/shared/include
+
+
+LD_LIBRARY_PATH := $(if $(LD_LIBRARY_PATH),$(LD_LIBRARY_PATH):$(SYSTEMC_HOME)/lib:$(SYSTEMC_HOME)/lib-linux64,$(SYSTEMC_HOME)/lib:$(SYSTEMC_HOME)/lib-linux64)
+export LD_LIBRARY_PATH
+
 
 LIBDIR ?=
 LIBDIR += -L. -L$(SYSTEMC_HOME)/lib-linux64 -L$(BOOST_HOME)/lib
