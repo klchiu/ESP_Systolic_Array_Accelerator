@@ -51,6 +51,8 @@ SC_MODULE(SysPE)
     weight_out_reg = 0;
     act_reg = 0;
     accum_reg = 0;
+
+    wait();
   
     #pragma hls_pipeline_init_interval 1
     while(1) {
