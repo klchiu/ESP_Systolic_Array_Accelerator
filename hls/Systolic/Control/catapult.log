@@ -1,0 +1,43 @@
+//  Catapult Ultra Synthesis 2021.1/950854 (Production Release) Mon Aug  2 21:36:02 PDT 2021
+//  
+//          Copyright (c) Siemens EDA, 1996-2021, All Rights Reserved.
+//                        UNPUBLISHED, LICENSED SOFTWARE.
+//             CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
+//                   PROPERTY OF SIEMENS EDA OR ITS LICENSORS.
+//  
+//  Running on Linux ztm2105@socp03 3.10.0-1160.59.1.el7.x86_64 x86_64 aol
+//  
+//  Package information: SIFLIBS v23.7_0.0, HLS_PKGS v23.7_0.0, 
+//                       SIF_TOOLKITS v23.7_0.0, SIF_XILINX v23.7_0.0, 
+//                       SIF_ALTERA v23.7_0.0, CCS_LIBS v23.7_0.0, 
+//                       CDS_PPRO v10.5a, CDS_DesigChecker v2021.1, 
+//                       CDS_OASYS v20.1_3.6, CDS_PSR v20.2_1.8, 
+//                       DesignPad v2.78_1.0
+//  
+//  Start time Tue Mar  7 12:38:20 2023
+# -------------------------------------------------
+# Logging session transcript to file "/tmp/log13359682d456f.0"
+dofile ./go_hls.tcl
+# > source ../../nvhls_exec.tcl
+# Info: Branching solution 'solution.v2' at state 'initial' (PRJ-2)
+# > nvhls::run
+# ***USER SETTINGS***
+# TOP_NAME = Control
+# CLK_PERIOD = 1
+# SRC_PATH = ../../../cmod/Systolic/
+# SEARCH_PATH = /opt/matchlib_toolkit/examples/matchlib/include /opt/matchlib_toolkit/examples/matchlib_connections/include /opt/matchlib_toolkit/examples/rapidjson/include /opt/matchlib_toolkit/examples/Boost-Preprocessor-master/include
+# HLS_CATAPULT = 1
+# RUN_SCVERIFY = 0
+# COMPILER_FLAGS = HLS_ALGORITHMICC CONNECTIONS_ACCURATE_SIM SC_INCLUDE_DYNAMIC_PROCESSES
+# SYSTEMC_DESIGN = 1
+# RUN_CDESIGN_CHECKER = 0
+# Info: Starting transformation 'analyze' on solution 'solution.v2' (SOL-8)
+# Moving session transcript to file "/home/esp2023/ztm2105/ESP_Systolic_Array_Accelerator/hls/Systolic/Control/catapult.log"
+# Front End called with arguments: -I. -I/opt/matchlib_toolkit/examples/matchlib/include -I/opt/matchlib_toolkit/examples/matchlib_connections/include -I/opt/matchlib_toolkit/examples/rapidjson/include -I/opt/matchlib_toolkit/examples/Boost-Preprocessor-master/include -- /home/esp2023/ztm2105/ESP_Systolic_Array_Accelerator/cmod/Systolic/Control/Control.h (CIN-69)
+# Edison Design Group C++/C Front End - Version 6.1 (CIN-1)
+# Error: $PROJECT_HOME/../../../cmod/Systolic/Control/Control.h(12): cannot open source file "nvhls_int.h" (CRD-1696)
+# Error: Compilation aborted (CIN-5)
+# Info: Completed transformation 'new' on solution 'solution.v2': elapsed time 2.12 seconds, memory usage 1105044kB, peak memory usage 1105044kB (SOL-9)
+# > end dofile ./go_hls.tcl
+# Error: go analyze: Failed analyze
+// Finish time Tue Mar  7 12:38:29 2023, time elapsed 0:09, peak memory 1.05GB, exit status 2

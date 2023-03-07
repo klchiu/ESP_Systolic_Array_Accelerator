@@ -1,0 +1,24 @@
+
+# Messages from "go new"
+
+# Info: Branching solution 'solution.v2' at state 'initial' (PRJ-2)
+
+# Messages from "go analyze"
+
+nvhls::run
+***USER SETTINGS***
+TOP_NAME = Control
+CLK_PERIOD = 1
+SRC_PATH = ../../../cmod/Systolic/
+SEARCH_PATH = /opt/matchlib_toolkit/examples/matchlib/include /opt/matchlib_toolkit/examples/matchlib_connections/include /opt/matchlib_toolkit/examples/rapidjson/include /opt/matchlib_toolkit/examples/Boost-Preprocessor-master/include
+HLS_CATAPULT = 1
+RUN_SCVERIFY = 0
+COMPILER_FLAGS = HLS_ALGORITHMICC CONNECTIONS_ACCURATE_SIM SC_INCLUDE_DYNAMIC_PROCESSES
+SYSTEMC_DESIGN = 1
+RUN_CDESIGN_CHECKER = 0
+# Info: Starting transformation 'analyze' on solution 'solution.v2' (SOL-8)
+Moving session transcript to file "/home/esp2023/ztm2105/ESP_Systolic_Array_Accelerator/hls/Systolic/Control/catapult.log"
+Front End called with arguments: -I. -I/opt/matchlib_toolkit/examples/matchlib/include -I/opt/matchlib_toolkit/examples/matchlib_connections/include -I/opt/matchlib_toolkit/examples/rapidjson/include -I/opt/matchlib_toolkit/examples/Boost-Preprocessor-master/include -- /home/esp2023/ztm2105/ESP_Systolic_Array_Accelerator/cmod/Systolic/Control/Control.h (CIN-69)
+Edison Design Group C++/C Front End - Version 6.1 (CIN-1)
+# Error: cannot open source file "nvhls_int.h" (CRD-1696)
+# Error: Compilation aborted (CIN-5)

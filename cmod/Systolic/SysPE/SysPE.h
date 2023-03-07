@@ -34,7 +34,7 @@ SC_MODULE(SysPE)
 
   spec::InputType weight_reg, weight_out_reg;
   spec::InputType act_reg;
-  spec::AccumType accum_reg;
+  spec::AccumType accum_reg, accum_out_reg;
 
   void PERun() {
     weight_in.Reset();
@@ -51,7 +51,8 @@ SC_MODULE(SysPE)
     weight_out_reg = 0;
     act_reg = 0;
     accum_reg = 0;
-  
+    wait(); 
+ 
     #pragma hls_pipeline_init_interval 1
     while(1) {
       spec::InputType tmp;

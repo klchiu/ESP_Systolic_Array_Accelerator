@@ -15,6 +15,9 @@
 # limitations under the License.
 #
 
+LD_LIBRARY_PATH := $(if $(LD_LIBRARY_PATH),$(LD_LIBRARY_PATH):$(SYSTEMC_HOME)/lib:$(SYSTEMC_HOME)/lib-linux64,$(SYSTEMC_HOME)/lib:$(SYSTEMC_HOME)/lib-linux64)
+export LD_LIBRARY_PATH
+
 CFLAGS = -DHLS_ALGORITHMICC 
 
 include ../../cmod_Makefile

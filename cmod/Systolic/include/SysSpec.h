@@ -6,7 +6,7 @@
 #include <nvhls_vector.h>
 
 namespace spec {
-  const int N = 32;         // array size N*N
+  const int N = 16;         // array size N*N
   const int Entries = N*8; // number of entries per bank
   // Total memory with double buffering: 2*N*Entries bytes
 

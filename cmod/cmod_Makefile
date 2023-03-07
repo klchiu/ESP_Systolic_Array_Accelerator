@@ -32,6 +32,7 @@ CATAPULT_HOME ?=
 CC = g++
 
 INCDIR ?=
+#INCDIR += -I$(SYSTEMC_HOME)/include -I$(SYSTEMC_HOME)/src -I$(BOOST_HOME)/include -I$(CATAPULT_HOME)/shared/include
 #INCDIR += -I. -I$(SYSTEMC_HOME)/include -I$(BOOST_HOME)/include -I$(CATAPULT_HOME)/Mgc_home/shared/include
 #INCDIR += -I$(CONNECTIONS_HOME)/include
 #INCDIR += -I$(RAPIDJSON_HOME)/include 

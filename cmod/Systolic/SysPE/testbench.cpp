@@ -66,6 +66,8 @@ SC_MODULE (Source) {
 
   void pop_result() {
     weight_out.Reset();
+    act_out.Reset();
+    accum_out.Reset();
     wait();
 
     unsigned int i = 0, j = 0;
