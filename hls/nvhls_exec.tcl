@@ -34,31 +34,57 @@ namespace eval nvhls {
         set BUP_BLOCKS {}
         #global BUP_BLOCKS
         options set Input/SearchPath ". $SEARCH_PATH"
-        set_input_files $SRC_PATH $TOP_NAME $SYSTEMC_DESIGN
+        set rf $env(ROOT)
+	options set /ComponentLibs/SearchPath "$rf/mem_bank" -append
+	
+	set_input_files $SRC_PATH $TOP_NAME $SYSTEMC_DESIGN
         set_compiler_flags $HLS_CATAPULT $COMPILER_FLAGS
-        usercmd_pre_analyze
+        echo "***ZAIN USERCMD_PRE_ANALYZE***"
+	usercmd_pre_analyze
+	echo "***ZAIN ANALYZE***"
         go analyze
-        setup_libs
-        setup_clocks $CLK_PERIOD
-        setup_hier $TOP_NAME
+        echo "***ZAIN SETUP_LIBS***"	 
+	setup_libs
+        echo "***ZAIN SETUP_CLOCKS***"
+	setup_clocks $CLK_PERIOD
+        echo "***ZAIN SETUP_HEIR***"
+	setup_hier $TOP_NAME
+	echo "***ZAIN USERCMD_PRE_COMPILE***"           	
         usercmd_pre_compile
-        set_bup_blocks BUP_BLOCKS
-        load_bup_blocks_pre $BUP_BLOCKS 
-        go compile
+        echo "***ZAIN SET_BUP_BLOCKS***" 
+	set_bup_blocks BUP_BLOCKS     
+        echo "***ZAIN LOAD_BUP_BLOCKS_PRE***"
+	load_bup_blocks_pre $BUP_BLOCKS 
+        echo "****ZAIN GO_COMPILE***"
+	go compile
+	echo "***ZAIN RUN_DESIGN_CHECKER***"
         if { $RUN_CDESIGN_CHECKER eq "1" } { run_design_checker; exit }
-        go libraries
-        load_bup_blocks_post $TOP_NAME $BUP_BLOCKS
-        go assembly
-        usercmd_post_assembly
-        go architect
-        usercmd_post_architect
-        project save
-        go allTODO ocate
-        go schedule
-        go dpfsm
-        project save
-        go extract
-        project save
+        echo "***ZAIN GO LIBRARIES***"
+	go libraries
+        echo "***ZAIN LOAD_BUP_BLOCKS_POST***"
+	load_bup_blocks_post $TOP_NAME $BUP_BLOCKS
+        echo "***ZAIN GO ASSEMBLY***"
+	go assembly
+        echo "***ZAIN USERCMD_POST_ASSEMBLY***"
+	usercmd_post_assembly
+        echo "***ZAIN GO ARCHITECT***"
+	go architect
+        echo "***ZAIN USERCMD_POST_ARCHITECT***"
+	usercmd_post_architect
+        echo "***ZAIN PROJECT SAVE***"
+	project save
+        echo "***ZAIN GO ALLOCATE***"
+	go allocate
+        echo "***ZAIN GO SCHEDULE***"
+	go schedule
+        echo "***ZAIN GO DPFSM***"
+	go dpfsm
+        echo "***ZAIN PROJECT SAVE***"
+	project save
+        echo "***ZAIN GO EXTRACT***"
+	go extract
+        echo "***ZAIN PROJECT SAVE***"
+	project save
         echo $RUN_SCVERIFY
         
         if { $RUN_SCVERIFY eq "1" } { 
@@ -111,6 +137,19 @@ namespace eval nvhls {
 
     proc setup_libs {} {
         # TODO Technology Library
+        set FPGA_PART_NUM "xcvu9p-flga2104-2-e"
+    	set FPGA_FAMILY "VIRTEX-uplus"
+    	set FPGA_SPEED_GRADE "-2"
+
+	solution library \
+    		add mgc_Xilinx-$FPGA_FAMILY$FPGA_SPEED_GRADE\_beh -- \
+    		-rtlsyntool Vivado \
+    		-manufacturer Xilinx \
+    		-family $FPGA_FAMILY \
+    		-speed $FPGA_SPEED_GRADE \
+    		-part $FPGA_PART_NUM
+
+	solution library add DUAL_PORT_RBW
     }
 
     proc setup_clocks {period} {

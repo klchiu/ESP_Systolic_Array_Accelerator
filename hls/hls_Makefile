@@ -28,7 +28,8 @@ export TOP_NAME       ?= $(shell basename `pwd`)
 # Clock period in ns
 export CLK_PERIOD     ?= 1
 export SRC_PATH       ?= $(ROOT)/cmod/unittests
-export SEARCH_PATH    ?= $(MATCHLIB_HOME)/include $(CONNECTIONS_HOME)/include $(RAPIDJSON_HOME)/include $(BOOST_HOME)/include
+export SEARCH_PATH    ?= $(MATCHLIB_TOOL)/include $(BOOST_HOME) $(CATAPULT_HOME)/shared/pkgs/matchlib/cmod/include $(TOT)/mem_bank
+#export SEARCH_PATH    ?= $(MATCHLIB_HOME)/include $(CONNECTIONS_HOME)/include $(RAPIDJSON_HOME)/include $(BOOST_HOME)/include
 #export SEARCH_PATH    ?= $(MATCHLIB_HOME)/include $(CONNECTIONS_HOME)/include $(RAPIDJSON_HOME)/include $(SM6_HOME)/include
 #export SEARCH_PATH    ?= $(MATCHLIB_HOME)/include $(CONNECTIONS_HOME)/include $(RAPIDJSON_HOME)/include
 export HLS_CATAPULT   ?= 1
@@ -67,6 +68,7 @@ endif
 export FSDB_VCS_RD_SC_VALPTR_PROTECT=1
 
 hls: clean
+	echo "***ZAIN NOVAS_INST_DIR***"
 	export NOVAS_INST_DIR=$(NOVAS_HOME); \
         export LIBRARY_PATH=$(CRT_LIB_DIR):$LIBRARY_PATH; \
 	catapult -shell -product ultra -file go_hls.tcl

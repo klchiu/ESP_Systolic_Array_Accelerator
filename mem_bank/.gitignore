@@ -1,0 +1,9 @@
+*
+.*
+!.gitignore
+!DUAL_PORT_RBW_*
+!DUAL_PORT_RBW.v
+!DUAL_PORT_RBW.tcl
+DUAL_PORT_RBW_trans_rsc.h
+DUAL_PORT_RBW.h
+DUAL_PORT_RBW.lib
