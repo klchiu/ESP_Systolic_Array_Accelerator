@@ -26,7 +26,7 @@ BOOST_HOME ?= /usr/local/boost/
 export ROOT           ?= $(TOT)
 export TOP_NAME       ?= $(shell basename `pwd`)
 # Clock period in ns
-export CLK_PERIOD     ?= 1
+export CLK_PERIOD     ?= 5
 export SRC_PATH       ?= $(ROOT)/cmod/unittests
 export SEARCH_PATH    ?= $(MATCHLIB_TOOL)/include $(BOOST_HOME) $(CATAPULT_HOME)/shared/pkgs/matchlib/cmod/include $(TOT)/mem_bank
 #export SEARCH_PATH    ?= $(MATCHLIB_HOME)/include $(CONNECTIONS_HOME)/include $(RAPIDJSON_HOME)/include $(BOOST_HOME)/include
